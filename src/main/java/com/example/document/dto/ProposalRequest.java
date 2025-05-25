@@ -5,6 +5,7 @@ import java.util.Map;
 public class ProposalRequest {
     private String productCode;
     private Map<String, String> data;
+    private String withThyemleaf;
 
     public String getProductCode() {
         return productCode;
@@ -20,5 +21,13 @@ public class ProposalRequest {
 
     public void setData(Map<String, String> data) {
         this.data = data;
+    }
+
+    public String getWithThyemleaf() {
+        return withThyemleaf;
+    }
+
+    public void setWithThyemleaf(String withThyemleaf) {
+        this.withThyemleaf = withThyemleaf;
     }
 }
