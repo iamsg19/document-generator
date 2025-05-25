@@ -1,6 +1,5 @@
 package com.example.document.repository;
 
-import com.example.document.model.ProposalFormTemplates;
 import com.example.document.model.ProposalFormThyemleafTemplates;
 import org.springframework.data.mongodb.repository.MongoRepository;
 

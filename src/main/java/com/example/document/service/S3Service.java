@@ -6,7 +6,7 @@ public class S3Service {
 
     public String getTemplateContentByKey(String templateFile) {
         try {
-            return "";
+            return "<p>S3 Template</p>";
         } catch (Exception e) {
             throw new RuntimeException("Error reading template file: " + templateFile, e);
         }

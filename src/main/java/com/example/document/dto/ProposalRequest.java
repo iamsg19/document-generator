@@ -6,6 +6,7 @@ public class ProposalRequest {
     private String productCode;
     private Map<String, String> data;
     private String withThyemleaf;
+    private String templateSource;
 
     public String getProductCode() {
         return productCode;
@@ -29,5 +30,13 @@ public class ProposalRequest {
 
     public void setWithThyemleaf(String withThyemleaf) {
         this.withThyemleaf = withThyemleaf;
+    }
+
+    public String getTemplateSource() {
+        return templateSource;
+    }
+
+    public void setTemplateSource(String templateSource) {
+        this.templateSource = templateSource;
     }
 }

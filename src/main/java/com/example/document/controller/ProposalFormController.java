@@ -1,4 +1,4 @@
-package com.example.document;
+package com.example.document.controller;
 
 import com.example.document.dto.ProposalRequest;
 import com.example.document.service.ProposalFormByThyemleaf;
@@ -17,7 +17,7 @@ public class ProposalFormController {
 
     @PostMapping("/generate")
     public ResponseEntity<String> generateForm(@RequestBody ProposalRequest request) throws JsonProcessingException {
-        String formHtml = proposalFormByThyemleaf.generateProposalForm(request);
-        return ResponseEntity.ok().body(formHtml);
+
+        return ResponseEntity.ok().body(proposalFormByThyemleaf.generateProposalForm(request));
     }
 }
