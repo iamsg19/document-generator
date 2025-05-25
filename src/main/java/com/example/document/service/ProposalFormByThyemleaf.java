@@ -20,28 +20,17 @@ public class ProposalFormByThyemleaf {
     private TemplateEngine templateEngine;
 
     @Autowired
-    private S3Service s3Service;
+    private TemplateFetchService templateFetchService;
+
+    @Autowired
+    private TemplateDataHelper templateDataHelper;
 
     public String generateProposalForm(ProposalRequest request) throws JsonProcessingException {
 
-        String templateHtml = s3Service.getTemplateContentForThyemleaf(request.getProductCode());
+        String templateHtml = templateFetchService.getTemplateContent("db", request.getProductCode());
 
-        // Prepare Thymeleaf context with dynamic data
-        Context context = new Context();
-        ObjectMapper objectMapper = new ObjectMapper();
-        String jsonRequest = objectMapper.writeValueAsString(request.getData());
-        Map<String, Object> templateData = null;
-        try {
-            templateData = objectMapper.readValue(
-                    jsonRequest,
-                    new TypeReference<Map<String, Object>>() {}
-            );
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
-        }
-        context.setVariable("data", templateData);
-        String template = templateHtml;
+        Context context = templateDataHelper.buildThymeleafContextFromData(request.getData());
         // Process the template using Thymeleaf
-        return templateEngine.process(template, context);
+        return templateEngine.process(templateHtml, context);
     }
 }
