@@ -15,10 +15,11 @@ public class DocumentGenerationService {
         this.s3UploadService = s3UploadService;
     }
 
-    public String generateAndUpload(String htmlContent, String s3Key, DocumentFormat format) {
+    public byte[] generateAndUpload(String htmlContent, String s3Key, DocumentFormat format) {
         byte[] documentBytes = conversionContext.convertHtml(htmlContent, format);
         String contentType = getContentType(format);
-        return s3UploadService.uploadDocument(documentBytes, s3Key, contentType);
+        return documentBytes;
+        //return s3UploadService.uploadDocument(documentBytes, s3Key, contentType);
     }
 
     private String getContentType(DocumentFormat format) {

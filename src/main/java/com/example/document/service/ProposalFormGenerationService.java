@@ -9,7 +9,7 @@ import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
 @Service
-public class ProposalFormByThyemleaf {
+public class ProposalFormGenerationService {
 
     @Autowired
     private TemplateEngine templateEngine;
@@ -23,7 +23,7 @@ public class ProposalFormByThyemleaf {
     @Autowired
     private DocumentGenerationService documentGenerationService;
 
-    public String generateProposalForm(ProposalRequest request) throws JsonProcessingException {
+    public byte[] generateProposalForm(ProposalRequest request) throws JsonProcessingException {
 
         String templateHtml = templateFetchService.getTemplateContent(request.getTemplateSource(), request.getProductCode());
 

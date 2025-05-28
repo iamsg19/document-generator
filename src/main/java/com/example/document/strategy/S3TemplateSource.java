@@ -14,7 +14,7 @@ public class S3TemplateSource implements TemplateSourceStrategy {
 
     @Override
     public boolean supports(String sourceType) {
-        return "s3".equalsIgnoreCase(sourceType);
+        return "dataFromS3".equalsIgnoreCase(sourceType);
     }
 
     @Override

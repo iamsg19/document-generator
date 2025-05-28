@@ -15,7 +15,7 @@ public class DatabaseTemplateSource implements TemplateSourceStrategy {
 
     @Override
     public boolean supports(String sourceType) {
-        return "db".equalsIgnoreCase(sourceType);
+        return "dataFromDB".equalsIgnoreCase(sourceType);
     }
 
     @Override
